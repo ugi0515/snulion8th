@@ -25,9 +25,11 @@ SECRET_KEY = 'xt@f=2y2fa*d^&63jvm^$e*+4yu6a0**pctee80_v9kk#g6@g5'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
-
+ALLOWED_HOSTS = [
+        'test.eba-witghm72.ap-northeast-2.elasticbeanstalk.com',
+        'test.seodonguk.com'
+        ]
+# ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
@@ -145,6 +147,6 @@ AUTHENTICATION_BACKENDS = (
 
 SITE_ID = 1
 
-ACCOUNT_LOGOUT_ON_GET = True 
+ACCOUNT_LOGOUT_ON_GET = True
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
