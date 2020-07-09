@@ -20,16 +20,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'xt@f=2y2fa*d^&63jvm^$e*+4yu6a0**pctee80_v9kk#g6@g5'
+SECRET_KEY = os.getenv('SECRET_KEY', "test_secret_key")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.getenv('DEBUG', 'True') == 'True'
 
-ALLOWED_HOSTS = [
-        'test.eba-witghm72.ap-northeast-2.elasticbeanstalk.com',
-        'test.seodonguk.com'
-        ]
-# ALLOWED_HOSTS = []
+ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', 'localhost').split(',')
 # Application definition
 
 INSTALLED_APPS = [
