@@ -14,6 +14,13 @@ jobs:
 
     - name: Generate deployment package
       run: zip -r deploy.zip seminar/.
+    
+    - name: Declare variables
+      id: vars
+      shell: bash
+      run: |
+        echo "GITHUB_SHA: ${GITHUB_SHA}"
+        echo "::set-output name=sha::$(git rev-parse --short HEAD)"
       
     - name: Deploy to EB
       uses: einaregilsson/beanstalk-deploy@v10
@@ -23,5 +30,5 @@ jobs:
         application_name: instagram
         environment_name: Instagram-test
         region: ap-northeast-2
-        version_label: "${GITHUB_SHA}"
+        version_label: ${{ steps.vars.outputs.sha }}
         deployment_package: deploy.zip
