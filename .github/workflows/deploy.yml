@@ -13,7 +13,7 @@ jobs:
       uses: actions/checkout@v1
 
     - name: Generate deployment package
-      run: cd seminar; zip -r deploy.zip
+      run: zip -r deploy.zip seminar/*
       
     - name: Deploy to EB
       uses: einaregilsson/beanstalk-deploy@v10
@@ -23,4 +23,4 @@ jobs:
         application_name: instagram
         environment_name: Instagram-test
         region: ap-northeast-2
-        deployment_package: seminar/deploy.zip
+        deployment_package: deploy.zip
