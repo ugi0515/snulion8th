@@ -23,4 +23,4 @@ jobs:
         application_name: instagram
         environment_name: Instagram-test
         region: ap-northeast-2
-        deployment_package: deploy.zip
+        deployment_package: seminar/deploy.zip
